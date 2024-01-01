@@ -1,5 +1,7 @@
 package dev.ecstacy;
 
+import dev.ecstacy.system.manager.Manager;
+import dev.ecstacy.system.manager.manager.ModuleManager;
 import meteordevelopment.orbit.EventBus;
 import meteordevelopment.orbit.IEventBus;
 import net.fabricmc.api.ModInitializer;
@@ -8,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main implements ModInitializer {
 
@@ -24,8 +28,13 @@ public class Main implements ModInitializer {
                 klass, MethodHandles.lookup())
         );
 
+        List<Manager> managers = new ArrayList<>();
+
+        managers.add(new ModuleManager());
+
+        managers.forEach(Manager::onInitialize);
 
 
-		LOGGER.info("Loading ghost cheets..");
+        LOGGER.info("Loading ghost cheets..");
     }
 }

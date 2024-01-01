@@ -1,7 +1,7 @@
-package dev.ecstacy.system.module.modules;
+package dev.ecstacy.system.impl.module.modules;
 
-import dev.ecstacy.system.module.Category;
-import dev.ecstacy.system.module.Module;
+import dev.ecstacy.system.impl.module.Category;
+import dev.ecstacy.system.impl.module.Module;
 
 public class Fly extends Module {
     public Fly() {

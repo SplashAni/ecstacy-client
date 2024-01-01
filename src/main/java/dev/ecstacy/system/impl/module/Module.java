@@ -1,9 +1,9 @@
-package dev.ecstacy.system.module;
+package dev.ecstacy.system.impl.module;
 
 import dev.ecstacy.Main;
 import net.minecraft.client.MinecraftClient;
 
-public class Module {
+public abstract class Module {
 
     String name;
     Category category;

@@ -1,4 +1,4 @@
-package dev.ecstacy.system.module;
+package dev.ecstacy.system.impl.module;
 
 public enum Category {
     Combat,
