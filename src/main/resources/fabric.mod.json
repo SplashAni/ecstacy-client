@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.ecstacy.Ecstacy"
+			"splash.ecstacy.Main"
 		]
 	},
 	"mixins": [
