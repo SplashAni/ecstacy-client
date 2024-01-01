@@ -1,7 +1,8 @@
 package dev.ecstacy;
 
 import dev.ecstacy.system.manager.Manager;
-import dev.ecstacy.system.manager.manager.ModuleManager;
+import dev.ecstacy.system.manager.Managers;
+import dev.ecstacy.system.manager.managers.ModuleManager;
 import meteordevelopment.orbit.EventBus;
 import meteordevelopment.orbit.IEventBus;
 import net.fabricmc.api.ModInitializer;
@@ -28,11 +29,8 @@ public class Main implements ModInitializer {
                 klass, MethodHandles.lookup())
         );
 
-        List<Manager> managers = new ArrayList<>();
 
-        managers.add(new ModuleManager());
-
-        managers.forEach(Manager::onInitialize);
+        Managers.initialize();
 
 
         LOGGER.info("Loading ghost cheets..");

@@ -1,4 +1,4 @@
-package dev.ecstacy.system.manager.manager;
+package dev.ecstacy.system.manager.managers;
 
 import dev.ecstacy.system.impl.module.Module;
 import dev.ecstacy.system.impl.module.modules.Fly;
