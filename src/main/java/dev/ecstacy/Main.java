@@ -5,7 +5,7 @@ import dev.ecstacy.event.events.TickEvent;
 import dev.ecstacy.system.impl.module.Module;
 import dev.ecstacy.system.manager.Managers;
 import dev.ecstacy.system.manager.managers.ModuleManager;
-import dev.ecstacy.ui.Gui;
+import dev.ecstacy.ui.GuiScreen;
 import meteordevelopment.orbit.EventBus;
 import meteordevelopment.orbit.EventHandler;
 import meteordevelopment.orbit.IEventBus;
@@ -53,7 +53,7 @@ public class Main implements ModInitializer {
     public void onKey(KeyEvent event) {
 
         if(event.getKey() == GLFW.GLFW_KEY_RIGHT_SHIFT){
-            mc.setScreen(new Gui());
+            mc.setScreen(new GuiScreen());
         }
 
         ModuleManager.get().getActiveModules()
