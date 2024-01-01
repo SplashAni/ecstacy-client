@@ -6,8 +6,12 @@ import dev.ecstacy.system.manager.Manager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ModuleManager extends Manager {
+    public static ModuleManager get() {
+        return new ModuleManager();
+    }
     public ModuleManager() {
         super("Modules");
     }
@@ -22,8 +26,10 @@ public class ModuleManager extends Manager {
         super.onInitialize();
     }
 
-    public List<Module> getModules() {
-        return modules;
+    public List<Module> getActiveModules() {
+        return modules.stream()
+                .filter(Module::isActive)
+                .collect(Collectors.toList());
     }
 
 }
