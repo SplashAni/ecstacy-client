@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MinecraftClientMixin {
     @Inject(at = @At("HEAD"), method = "tick")
     private void onTick(CallbackInfo info) {
-        Main.bus.post(new TickEvent());
+        Main.BUS.post(new TickEvent());
     }
 }

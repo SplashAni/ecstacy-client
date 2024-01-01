@@ -12,14 +12,14 @@ import java.lang.invoke.MethodHandles;
 public class Main implements ModInitializer {
 
     public static final Logger LOGGER = LoggerFactory.getLogger("ecstacy");
-    public static final IEventBus bus = new EventBus();
+    public static final IEventBus BUS = new EventBus();
     public static final MinecraftClient mc = MinecraftClient.getInstance();
 
 
     @Override
     public void onInitialize() {
 
-        bus.registerLambdaFactory("splash.ecstasy", (lookupInMethod, klass)
+        BUS.registerLambdaFactory("dev.ecstasy", (lookupInMethod, klass)
                 -> (MethodHandles.Lookup) lookupInMethod.invoke(null,
                 klass, MethodHandles.lookup())
         );
