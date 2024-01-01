@@ -1,10 +1,17 @@
 package dev.ecstacy;
 
+import dev.ecstacy.event.events.KeyEvent;
+import dev.ecstacy.event.events.TickEvent;
+import dev.ecstacy.system.impl.module.Module;
 import dev.ecstacy.system.manager.Managers;
+import dev.ecstacy.system.manager.managers.ModuleManager;
+import dev.ecstacy.ui.Gui;
 import meteordevelopment.orbit.EventBus;
+import meteordevelopment.orbit.EventHandler;
 import meteordevelopment.orbit.IEventBus;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
+import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,8 +32,34 @@ public class Main implements ModInitializer {
                 klass, MethodHandles.lookup())
         );
 
+        BUS.subscribe(this);
+
+
         Managers.initialize();
 
         LOGGER.info("Loading ghost cheets..");
+    }
+    @EventHandler
+    public void onTick(TickEvent event) {
+
+        if (mc.world == null) return;
+
+        for (Module module : ModuleManager.get().getActiveModules()) {
+            module.onTick();
+        }
+    }
+
+    @EventHandler
+    public void onKey(KeyEvent event) {
+
+        if(event.getKey() == GLFW.GLFW_KEY_RIGHT_SHIFT){
+            mc.setScreen(new Gui());
+        }
+
+        ModuleManager.get().getActiveModules()
+                .stream()
+                .filter(module -> module.getKey() == event.getKey())
+                .forEach(Module::toggle);
+
     }
 }

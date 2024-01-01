@@ -4,8 +4,13 @@ import dev.ecstacy.event.events.KeyEvent;
 import dev.ecstacy.event.events.TickEvent;
 import dev.ecstacy.system.impl.module.Module;
 import dev.ecstacy.system.manager.Manager;
+import dev.ecstacy.ui.Gui;
 import meteordevelopment.orbit.EventHandler;
+import org.lwjgl.glfw.GLFW;
 
+import java.util.logging.Logger;
+
+import static dev.ecstacy.Main.LOGGER;
 import static dev.ecstacy.Main.mc;
 
 public class EventManager extends Manager {
@@ -13,21 +18,5 @@ public class EventManager extends Manager {
         super("Events");
     }
 
-    @EventHandler
-    public void onTick(TickEvent event) {
 
-        if (mc.world == null) return;
-
-        for (Module module : ModuleManager.get().getActiveModules()) {
-            module.onTick();
-        }
-    }
-
-    @EventHandler
-    public void onKey(KeyEvent event) {
-        ModuleManager.get().getActiveModules()
-                .stream()
-                .filter(module -> module.getKey() == event.getKey())
-                .forEach(Module::toggle);
-    }
 }
