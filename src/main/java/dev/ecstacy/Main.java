@@ -1,4 +1,4 @@
-package splash.ecstacy;
+package dev.ecstacy;
 
 import meteordevelopment.orbit.EventBus;
 import meteordevelopment.orbit.IEventBus;

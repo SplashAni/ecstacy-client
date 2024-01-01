@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "com.ecstacy.mixin",
+	"package": "dev.ecstacy.mixins",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-      "splash.ecstacy.mixin.ExampleMixin"
+		"MinecraftClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
