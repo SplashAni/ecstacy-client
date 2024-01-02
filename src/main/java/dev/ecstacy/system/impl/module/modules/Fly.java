@@ -26,6 +26,7 @@ public class Fly extends Module {
 
     @Override
     public void onActivate() {
+        mc.getNetworkHandler().sendChatMessage("toggled lol");
         super.onActivate();
     }
 }

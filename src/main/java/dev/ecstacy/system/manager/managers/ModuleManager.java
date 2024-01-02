@@ -1,5 +1,6 @@
 package dev.ecstacy.system.manager.managers;
 
+import dev.ecstacy.system.impl.module.Category;
 import dev.ecstacy.system.impl.module.Module;
 import dev.ecstacy.system.impl.module.modules.Fly;
 import dev.ecstacy.system.manager.Manager;
@@ -31,5 +32,11 @@ public class ModuleManager extends Manager {
                 .filter(Module::isActive)
                 .collect(Collectors.toList());
     }
+    public List<Module> getCategory(Category category) {
+        return modules.stream()
+                .filter(module -> module.getCategory().equals(category))
+                .collect(Collectors.toList());
+    }
+
 
 }
